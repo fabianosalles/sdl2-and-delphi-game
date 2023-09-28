@@ -1,0 +1,3 @@
+[submodule "src/modules/sdl2"]
+	path = src/modules/sdl2
+	url = https://github.com/fabianosalles/sdl2-and-delphi-game.git
