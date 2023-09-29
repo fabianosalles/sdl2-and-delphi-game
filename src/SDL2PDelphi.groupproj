@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E0022EDF-4AED-490A-827C-646D981A7A06}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="InitSDL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="InitSDL">
+        <MSBuild Projects="InitSDL.dproj"/>
+    </Target>
+    <Target Name="InitSDL:Clean">
+        <MSBuild Projects="InitSDL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="InitSDL:Make">
+        <MSBuild Projects="InitSDL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="InitSDL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="InitSDL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="InitSDL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
